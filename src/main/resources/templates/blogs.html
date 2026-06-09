@@ -1,17 +1,40 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>ブログサイト</title>
 </head>
-<body>
-    <header>
-    <nav class="head">
-        <H1>spring</H1>
-        <input type="text">
-    </nav>
 
+<body>
+    <header class="site-header">
+        <div>
+            <H1 class="header-logo">spring</H1>
+            <input class="header-search" type="text" name="keyword" placeholder="キーワード検索">
+            <a href="/blogs">投稿</a>
+        </div>
     </header>
+
+    <div>
+        <a href="">
+            <h1>ポラノーイの広場</h1>
+            <p th:text="${title}">あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のギラギラひかる草の波。</p>
+        </a>
+    </div>
+     <div>
+        <a href="">
+            <h1>ポラノーイの広場</h1>
+            <p th:text="${title}">あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のギラギラひかる草の波。</p>
+        </a>
+    </div>
+     <div>
+        <a href="">
+            <h1>ポラノーイの広場</h1>
+            <p th:text="${title}">あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のギラギラひかる草の波。</p>
+        </a>
+    </div>
 </body>
+
 </html>

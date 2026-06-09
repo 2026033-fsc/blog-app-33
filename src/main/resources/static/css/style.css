@@ -1,0 +1,29 @@
+/* .head-div {
+    display: flex;
+} */
+
+/* ヘッダー全体のスタイル */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px; /* 上下左右の余白（必要に応じて調整） */
+  background-color: #ffffff; /* 背景色（白） */
+  
+  /* ★ ここが線を引く重要なポイントです ★ */
+  border-bottom: 1px solid #333333; /* 1pxの太さ、直線、暗めのグレー（または黒） */
+}
+
+/* ロゴの文字サイズ調整 */
+.header-logo {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+/* 検索窓のスタイル（図のイメージに合わせる場合） */
+.header-search input {
+  padding: 5px 10px;
+  border: 1px solid #333333;
+  border-radius: 4px;
+}
