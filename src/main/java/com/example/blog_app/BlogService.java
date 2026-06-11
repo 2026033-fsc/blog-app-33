@@ -1,6 +1,8 @@
-package com.example.BlogService;
+package com.example.blog_app;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,7 +17,11 @@ public class BlogService {
     return blogRepository.findAll();
   }
 
-  public void register(BlogForm form) {
-    blogRepository.save(new Blog(form.getTitle(), form.getPrice(), 0));
+  public Optional<Blog> findById(Long id){
+    return blogRepository.findById(id);
+  }
+
+  public void register(Blogform form) {
+    blogRepository.save(new Blog(form.getTitle(), form.getText(), 0));
   }
 }

@@ -2,18 +2,22 @@ package com.example.blog_app;
 
 public class Blog {
   private final String title;
-  private final boolean completed;
+  private final String notes;
+  private final long id;
 
-  public Blog(String title, boolean completed) {
+  public Blog(String title, String notes, long id) {
     this.title = title;
-    this.completed = completed;
+    this.notes = notes;
+    this.id = id;
   }
 
   public String getTitle() {
     return title;
   }
-  public boolean GetCompleted(){
-    return completed;
+  public String getNotes(){
+    return notes;
   }
-
+  public long getId() {
+      return id;
+  }
 }

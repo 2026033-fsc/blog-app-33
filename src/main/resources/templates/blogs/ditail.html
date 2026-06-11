@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-<html lang="ja" xmlns:th="http://www.thymeleaf.org">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/style.css">
-    <title>ブログサイト</title>
+    <title>詳細</title>
 </head>
-
 <body>
     <header class="site-header">
         <div>
@@ -17,13 +14,11 @@
         </div>
     </header>
 
-    <div th:each="blog:${blogs}">
-        <a href="">
-            <h1 th:text="${blog.title}">ポラノーイの広場</h1>
-            <p th:text="${blog.text}">あの</p>
+    <div th:each="">
+            <h1 th:text="${title}">ポラノーイの広場</h1>
+            <p th:text="${text}">メモ</p>
+            <!-- <a href="@{/blogs/ditail{id}/edit(id=${blog.id})}"></a> -->
         </a>
     </div>
-
 </body>
-
 </html>
