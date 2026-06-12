@@ -4,26 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
     <title>ブログサイト</title>
 </head>
 
 <body>
-    <header class="site-header">
-        <div>
-            <H1 class="header-logo">spring</H1>
-            <input class="header-search" type="text" name="keyword" placeholder="キーワード検索">
-            <a href="/blogs">投稿</a>
-        </div>
-    </header>
 
-    <div th:each="blog:${blogs}">
-        <a href="">
-            <h1 th:text="${blog.title}">ポラノーイの広場</h1>
-            <p th:text="${blog.text}">あの</p>
-        </a>
-    </div>
+    <header th:replace="'layout'::header"></header>
 
-</body>
+    <div class="page-wrapper">
+    
+        <nav class="header-nav">
+            <ul>
+                <li><a href="/blogs">ホーム</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+        
+            <div th:each="blog : ${blogs}">
+                <a th:href="@{/blog/{id}(id=${blog.id})}" class="blog-card-link">
+                    <div class="blog-card">
+                        <h1 th:text="${blog.title}">ポラノーイの広場</h1>
+                        <p th:text="${blog.notes}">あの</p>
+                    </div>
+                </a>
+            </div>
+            
+        </main>
+        
+    </div> </body>
 
 </html>

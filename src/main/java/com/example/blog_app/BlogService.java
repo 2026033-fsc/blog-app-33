@@ -17,11 +17,21 @@ public class BlogService {
     return blogRepository.findAll();
   }
 
-  public Optional<Blog> findById(Long id){
+  public Optional<Blog> findById(Long id) {
     return blogRepository.findById(id);
   }
 
   public void register(Blogform form) {
-    blogRepository.save(new Blog(form.getTitle(), form.getText(), 0));
+    blogRepository.save(new Blog(null, form.getTitle(), form.getText()));
+  }
+
+  public void add(Blogform form) {
+    if (form.getTitle() == null) {
+      throw new IllegalArgumentException("タイトルが空です");
+    }
+    if (form.getText() == null) {
+      throw new IllegalArgumentException("本文が空です");
+    }
+    blogRepository.save(new Blog(null, form.getTitle(), form.getText()));
   }
 }

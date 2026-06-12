@@ -1,9 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head th:fragment="head(title)">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/style.css">
   <title th:text="${title}">タイトル</title>
 </head>
+
 </html>
+
+<body>
+  <!-- <header th:fragment="header" class="site-header-nav"> -->
+  <header th:fragment="header" class="site-header">
+    <div>
+      <H1 class="header-logo">spring</H1>
+      <input class="header-search" type="text" name="keyword" placeholder="キーワード検索">
+      <a th:href="@{/blogs/post}">投稿</a>
+      <div class="header-nav">
+        <a th:href="@{/blogs}" class="btn-nav-home">ホーム</a>
+      </div>
+
+
+  </header>
+
+</body>

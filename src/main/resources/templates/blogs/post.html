@@ -1,26 +1,47 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>新規投稿</title>
 </head>
 
 <body>
-    <header class="site-header">
-        <div>
-            <H1 class="header-logo">spring</H1>
-            <input class="header-search" type="text" name="keyword" placeholder="キーワード検索">
-            <a href="/blogs">投稿</a>
-        </div>
-    </header>
 
-    <h1>タイトル</h1>
-    <input type="text" name="keyword" placeholder="タイトル">
-    <h2>本文</h2>
-    <input type="text" name="keyword" placeholder="本文">
-    <a href="/blogs">保存</a>
+    <header th:replace="'layout'::header"></header>
+
+    <div class="page-wrapper">
+    
+        <aside class="site-sidebar">
+            <ul>
+                <li><a href="/blogs">ホーム</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div class="post-form-card">
+                <h1>ブログを投稿する</h1>
+                
+                <form action="/post" method="post">
+                    <div class="form-group">
+                        <label>タイトル</label>
+                        <input type="text" name="title" placeholder="タイトルを入力" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>本文</label>
+                        <textarea name="text" placeholder="本文を入力" rows="10" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">保存する</button>
+                </form>
+            </div>
+        </main>
+        
+    </div>
+
 </body>
 
 </html>

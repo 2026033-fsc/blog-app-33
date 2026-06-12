@@ -14,13 +14,13 @@ public class BlogRepository {
     }
 
     public List<Blog> findAll() {
-        return jdbcClient.sql("SELECT id,title, notes FROM blogs")
+        return jdbcClient.sql("SELECT id, title, notes FROM blogs")
                 .query(Blog.class)
                 .list();
     }
 
     public Optional<Blog> findById(Long id) {
-        return jdbcClient.sql("SELECT id,title, notes FROM blogs WHEWE id = :id")
+        return jdbcClient.sql("SELECT id, title, notes FROM blogs WHERE id = :id")
                 .param("id", id)
                 .query(Blog.class)
                 .optional();

@@ -1,14 +1,19 @@
 package com.example.blog_app;
 
 public class Blog {
+  private final Long id;
   private final String title;
   private final String notes;
-  private final long id;
 
-  public Blog(String title, String notes, long id) {
+
+  public Blog(Long id, String title, String notes) {
+    this.id = id;
     this.title = title;
     this.notes = notes;
-    this.id = id;
+  }
+
+  public Long getId() {
+    return id;
   }
 
   public String getTitle() {
@@ -16,8 +21,5 @@ public class Blog {
   }
   public String getNotes(){
     return notes;
-  }
-  public long getId() {
-      return id;
   }
 }

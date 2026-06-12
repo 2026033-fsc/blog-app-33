@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
 @Controller
 public class BlogController {
   private final BlogService blogService;
@@ -22,30 +21,29 @@ public class BlogController {
 
   @GetMapping("/blogs")
   public String blogs(Model model) {
-    List<Blog> blogs = blogService.findAll();
-    model.addAttribute("blogs", blogs);
+    model.addAttribute("blogs", blogService.findAll());
     return "blogs";
   }
 
   @GetMapping("/blogs/post")
-     public String sample(@RequestParam String title, Model model) {
-    model.addAttribute("title", title);
+  public String postform() {
     return "blogs/post";
   }
-  @GetMapping("/blog/ditail{id}")
-  public String detail(@PathVariable Long id, Model model){
+
+  @GetMapping("/blog/{id}")
+  public String detail(@PathVariable Long id, Model model) {
     Optional<Blog> blogOpt = blogService.findById(id);
     if (blogOpt.isEmpty()) {
+      return "redirect:/blogs";
+    }
+    model.addAttribute("blog", blogOpt.get());
+    return "blogs/ditail";
+  }
+
+  @PostMapping("/post")
+  public String postMethodName(@ModelAttribute Blogform form) {
+    // TODO: process POST request
+    blogService.add(form);
     return "redirect:/blogs";
   }
-  model.addAttribute("blog", blogOpt.get());
-  return "blogs/detail";
-  }
-  @PostMapping("/blogs/post")
-  public String postMethodName(@ModelAttribute Blogform form) {
-      //TODO: process POST request
-      blogService.register(form);
-      return "blogs";
-  }
-  
 }
